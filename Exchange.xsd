@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:tns="urn:nato:stanag:5653:ncdf:datalake:1:0:Exchange" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:app="urn:nato:stanag:5653:ncdf:datalake:1:0:AppInfo" xmlns:base="urn:nato:stanag:5653:ncdf:datalake:1:0:Base" xmlns:s4778="urn:nato:stanag:4778:bindinginformation:1:0" targetNamespace="urn:nato:stanag:5653:ncdf:datalake:1:0:Exchange" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0">
+	<xsd:import namespace="urn:nato:stanag:5653:ncdf:datalake:1:0:AppInfo" schemaLocation="AppInfo.xsd"/>
+	<xsd:import namespace="urn:nato:stanag:5653:ncdf:datalake:1:0:Base" schemaLocation="Base.xsd"/>
+	<xsd:import namespace="urn:nato:stanag:4778:bindinginformation:1:0" schemaLocation="4778/4778.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation xml:lang="en">The Exchange Data concept.</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="ExchangeWrapper" type="tns:ExchangeWrapperType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The wrapper that includes the root element.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::e2193f57-8ef7-4555-8623-e62a69ebe5ca</app:SemanticID>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ExchangeWrapperType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The wrapper that includes the root element.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::e2193f57-8ef7-4555-8623-e62a69ebe5ca</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="s4778:BindingInformation" minOccurs="0"/>
+			<xsd:element ref="base:Data"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="BattleSpaceObjects" type="tns:BattleSpaceObjectsType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A list of BattleSpaceObjects.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::70b565b3-c6d8-4962-be04-62808a309397</app:SemanticID>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="BattleSpaceObjectsType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A list of BattleSpaceObjects.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::70b565b3-c6d8-4962-be04-62808a309397</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="tns:BattleSpaceObject" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="BattleSpaceObject" type="tns:BattleSpaceObjectType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The wrapper that includes the root element.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::7cd60d6f-6fbe-48f0-ab19-a9e12e1f8733</app:SemanticID>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="BattleSpaceObjectType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The wrapper that includes the root element.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::7cd60d6f-6fbe-48f0-ab19-a9e12e1f8733</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="base:ID"/>
+			<xsd:element ref="tns:Types"/>
+			<xsd:element ref="tns:Tags" minOccurs="0"/>
+			<xsd:element ref="tns:Shape" minOccurs="0"/>
+			<xsd:element ref="tns:Symbol" minOccurs="0"/>
+			<xsd:element ref="base:Data"/>
+			<xsd:element ref="s4778:BindingInformation" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="Types" type="tns:TypesType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A list of types and supertypes that are represented in the data.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::a61c7e7c-f52a-41a9-b00c-8e19a811dae9</app:SemanticID>
+				<app:ShortName>types</app:ShortName>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="TypesType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A list of types and supertypes that are represented in the data.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::a61c7e7c-f52a-41a9-b00c-8e19a811dae9</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="tns:Type" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Type" type="tns:TypeType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A type identifier. This can be a SemanticID or a qName.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::d27b0e5c-7132-4460-b9f8-638124507ef4</app:SemanticID>
+				<app:ShortName>type</app:ShortName>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="TypeType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A type identifier. This can be a SemanticID or a qName.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::d27b0e5c-7132-4460-b9f8-638124507ef4</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token"/>
+	</xsd:simpleType>
+
+	<xsd:element name="Tags" type="tns:TagsType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A list of tags assigned to the data.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::50f58f32-fe43-40c5-8790-66ca67264403</app:SemanticID>
+				<app:ShortName>tags</app:ShortName>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="TagsType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A list of tags assigned to the data.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::50f58f32-fe43-40c5-8790-66ca67264403</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="tns:Tag" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Tag" type="tns:TagType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A tag name.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::2f05aa42-e0e2-4daf-9745-03a4a8bbb105</app:SemanticID>
+				<app:ShortName>tag</app:ShortName>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="TagType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A tag identifier.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::2f05aa42-e0e2-4daf-9745-03a4a8bbb105</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token"/>
+	</xsd:simpleType>
+	<xsd:element name="Shape" type="tns:ShapeType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The (potentially approximated) shape of the Object. Might be a bounding box.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::98723176-ac18-4e99-8bb4-7de1021bc5c8</app:SemanticID>
+				<app:ShortName>shape</app:ShortName>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="ShapeType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The (potentially approximated) shape of the Object. Might be a bounding box. Currently uses a geojson string. Might be changed to KML later.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::98723176-ac18-4e99-8bb4-7de1021bc5c8</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token"/>
+	</xsd:simpleType>
+	<xsd:element name="Symbol" type="tns:SymbolType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The symbol used to visualize the Data.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::4aaf785c-f7d0-470f-b2cd-3858829314a0</app:SemanticID>
+				<app:ShortName>symbol</app:ShortName>
+				<app:MIMStereotype>instance</app:MIMStereotype>
+				<app:MIMStereotype>type</app:MIMStereotype>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="SymbolType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The symbol used to visualize the Data in the format [app6a|2525b]:[SymID].</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::4aaf785c-f7d0-470f-b2cd-3858829314a0</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token"/>
+	</xsd:simpleType>
+	<xsd:element name="Subscriptions" type="tns:SubscriptionsType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A collection of subscriptions.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::483e55ec-1387-4efe-bd31-962dbdd754b7</app:SemanticID>
+				<app:ShortName>subscriptions</app:ShortName>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SubscriptionsType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">A collection of subscriptions.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::483e55ec-1387-4efe-bd31-962dbdd754b7</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="tns:Subscription" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="Subscription" type="tns:SubscriptionType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The information required for the provider to understand what information to provide where.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::9ee747af-ef85-4e43-a84a-8c22691d4702</app:SemanticID>
+				<app:ShortName>subscription</app:ShortName>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SubscriptionType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The information required for the provider to understand what information to provide where.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::9ee747af-ef85-4e43-a84a-8c22691d4702</app:SemanticID>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="base:ExtensibleType">
+				<xsd:sequence>
+					<xsd:element ref="base:ID"/>
+					<xsd:element ref="tns:NotificationURL"/>
+					<xsd:element ref="tns:Query" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+
+	<xsd:element name="NotificationURL" type="tns:NotificationURLType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The URL to which information will be posted.</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::eeb77dcd-993e-4ab6-bb42-3e0d3b34fb03</app:SemanticID>
+				<app:ShortName>notificationURL</app:ShortName>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Query" type="tns:QueryType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">The filter query to apply to the data to be posted (in RSQL syntax).</xsd:documentation>
+			<xsd:appinfo>
+				<app:SemanticID>IDT::d697edf2-4da0-4ab3-9af2-34decfdf824c</app:SemanticID>
+				<app:ShortName>query</app:ShortName>
+			</xsd:appinfo>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="NotificationURLType">
+		<xsd:restriction base="xsd:token"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="QueryType">
+		<xsd:restriction base="xsd:token"/>
+	</xsd:simpleType>
+</xsd:schema>
